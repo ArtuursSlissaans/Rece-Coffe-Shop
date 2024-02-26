@@ -1,28 +1,15 @@
-let menu = document.getElementById("nav");
-let open = document.getElementById("menu-btn");
-let close = document.getElementById("close");
+let navbar = document.querySelector('.header .flex .navbar');
 
-function openmenu() {
-  menu.style.left = "0";
-  open.style.display = "none";
-  close.style.display = "block";
-}
-function closemenu() {
-  menu.style.left = "-100%";
-  open.style.display = "block";
-  close.style.display = "none";
+document.querySelector('#menu-btn').onclick = () =>{
+   navbar.classList.toggle('active');
 }
 
-// nav bg color change
-
-function change() {
-  var nav = document.getElementById("navbar");
-  var value = window.scrollY;
-  if (value > 80) {
-    nav.classList.add("nav-change");
-  } else {
-    nav.classList.remove("nav-change");
-  }
+window.onscroll = () =>{
+   navbar.classList.remove('active');
 }
 
-window.addEventListener("scroll", change);
+document.querySelectorAll('input[type="number"]').forEach(inputNumber => {
+   inputNumber.oninput = () =>{
+      if(inputNumber.value.length > inputNumber.maxLength) inputNumber.value = inputNumber.value.slice(0, inputNumber.maxLength);
+   };
+});
